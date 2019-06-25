@@ -74,7 +74,7 @@ namespace Project_Pong
 
             public SolidBrush myBrush = new SolidBrush(Color.White);
 
-            public int p1Score = 10;                          //Integer that will store player 1 score
+            public int p1Score;                          //Integer that will store player 1 score
             public int p2Score;                          //Integer that will store player 2 score
 
             static int RandoMin = 1;                     //2 random integers used to randomize ball directions in the Randomize() method to avoid repetition of ball movement
@@ -328,6 +328,8 @@ namespace Project_Pong
                 if (Ball.p1Score >= 11)
                 {
                     btnPause.PerformClick();
+                    btnStart.Text = "Start";
+                    btnStart.Enabled = false;
                     MessageBox.Show("Congratulations! Player 1 Wins!");
                     
                     //Resets selected mode
@@ -342,6 +344,8 @@ namespace Project_Pong
                 else if (Ball.p2Score >= 11)
                 {
                     btnPause.PerformClick();
+                    btnStart.Text = "Start";
+                    btnStart.Enabled = false;
                     MessageBox.Show("Congratulations! Player 2 Wins!");
 
                     //Resets selected mode
@@ -554,7 +558,7 @@ namespace Project_Pong
                     {
                         //Transfers information from the scoreboard file into the game
                         Ball.p1Score = binaryReader.ReadInt32();
-                        Ball.p1Score = binaryReader.ReadInt32();
+                        Ball.p2Score = binaryReader.ReadInt32();
                     }
 
                     binaryReader.Close();
@@ -563,6 +567,47 @@ namespace Project_Pong
                     lblScore2.Text = Ball.p2Score.ToString();
                     lblWelcome.Visible = false;
                     MessageBox.Show("Scoreboard Successfully Opened!");
+
+                    //Checks if either player already has won the game
+                    if (Ball.CheckWin() == true)
+                    {
+                        if (Ball.p1Score >= 11)
+                        {
+                            btnPause.PerformClick();
+                            btnStart.Text = "Start";
+                            btnStart.Enabled = false;
+                            MessageBox.Show("Congratulations! Player 1 Wins!");
+
+                            //Resets selected mode
+                            btnRainbow.Visible = true;
+                            btnOriginal.Visible = false;
+                            Ball.RainbowMode = false;
+
+                            //Resets game board
+                            Ball.Restart(2);
+                            pBGame.Invalidate();
+                        }
+                        else if (Ball.p2Score >= 11)
+                        {
+                            btnPause.PerformClick();
+                            btnStart.Text = "Start";
+                            btnStart.Enabled = false;
+                            MessageBox.Show("Congratulations! Player 2 Wins!");
+
+                            //Resets selected mode
+                            btnRainbow.Visible = true;
+                            btnOriginal.Visible = false;
+                            Ball.RainbowMode = false;
+
+                            //Resets game board
+                            Ball.Restart(2);
+                            pBGame.Invalidate();
+                        }
+                    }
+                    else
+                    {
+                        return;
+                    }
 
                 }
             }
