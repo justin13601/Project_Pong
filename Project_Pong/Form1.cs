@@ -205,6 +205,7 @@ namespace Project_Pong
                 }
             }
 
+            //Method that tests for win conditions (11 points to either player triggers win)
             public bool CheckWin()
             {
                 if (p1Score >= 11)
@@ -309,7 +310,7 @@ namespace Project_Pong
             Ball.MoveBall(gameTimer);               //Moves the ball
             Ball.CheckIfMoving();                   //Checks if player is controlling the paddle
 
-            //Check if player scored
+            //Checks if player scored
             if (Ball.CheckScore() == true)
             {
                 lblScore1.Text = Ball.p1Score.ToString();
