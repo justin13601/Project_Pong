@@ -335,27 +335,27 @@ namespace Project_Pong
                     return;
             }
         }
-      ////Detects keys (Key Downs) that control the paddle
-      //private void Form1_KeyDown(object sender, KeyEventArgs e)
-      //{
-      //    switch (e.KeyData)
-      //    {
-      //        //Keys W (Up) & S (Down) controls player 1 paddle
-      //        case Keys.S:
-      //            Ball.p1movesDown = true;
-      //            return;
-      //        case Keys.W:
-      //            Ball.p1movesUp = true;
-      //            return;
-      //        //Keys P (Up) & L (Down) controls player 2 paddle
-      //        case Keys.L:
-      //            Ball.p2movesDown = true;
-      //            return;
-      //        case Keys.P:
-      //            Ball.p2movesUp = true;
-      //            return;
-      //    }
-      //}
+        //Detects keys (Key Downs) that control the paddle
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                //Keys W (Up) & S (Down) controls player 1 paddle
+                case Keys.S:
+                    Ball.p1movesDown = true;
+                    return;
+                case Keys.W:
+                    Ball.p1movesUp = true;
+                    return;
+                //Keys P (Up) & L (Down) controls player 2 paddle
+                case Keys.L:
+                    Ball.p2movesDown = true;
+                    return;
+                case Keys.P:
+                    Ball.p2movesUp = true;
+                    return;
+            }
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
