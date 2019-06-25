@@ -205,6 +205,22 @@ namespace Project_Pong
                 }
             }
 
+            public bool CheckWin()
+            {
+                if (p1Score >= 11)
+                {
+                    return true;
+                }
+                else if (p2Score >= 11)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
             public void IncreaseSpeed()
             {
                 //Increase both the normal speed and the results of any possible randomization in the Randomize() method
@@ -292,6 +308,17 @@ namespace Project_Pong
             Ball.DrawBall(gr);
             Ball.MoveBall(gameTimer);               //Moves the ball
             Ball.CheckIfMoving();                   //Checks if player is controlling the paddle
+
+            //Check if player scored
+            if (Ball.CheckScore() == true)
+            {
+                lblScore1.Text = Ball.p1Score.ToString();
+                lblScore2.Text = Ball.p2Score.ToString();
+            }
+            else
+            {
+                return;
+            }
 
             //Check if player scored
             if (Ball.CheckScore() == true)
