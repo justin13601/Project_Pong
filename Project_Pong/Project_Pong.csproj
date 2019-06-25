@@ -82,5 +82,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+    <Content Include="Music.wav" />
+    <Content Include="Pong Sound - Paddle.wav" />
+    <Content Include="Pong Sound - Score.wav" />
+    <Content Include="Pong Sound - Wall.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
