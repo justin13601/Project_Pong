@@ -321,11 +321,17 @@ namespace Project_Pong
                 return;
             }
 
-            //Check if player scored
-            if (Ball.CheckScore() == true)
+            //Checks if either player has won the game
+            if (Ball.CheckWin() == true)
             {
-                lblScore1.Text = Ball.p1Score.ToString();
-                lblScore2.Text = Ball.p2Score.ToString();
+                if (Ball.p1Score >= 11)
+                {
+                    MessageBox.Show("Congratulations, Player 1 Wins!");
+                }
+                else if (Ball.p2Score >= 11)
+                {
+                    MessageBox.Show("Congratulations, Player 2 Wins!");
+                }
             }
             else
             {
