@@ -31,6 +31,7 @@ namespace Project_Pong
             btnPause.Enabled = false;
             btnReset.Enabled = false;
             lblWelcome.Visible = true;
+            menuStrip1.Enabled = true;
 
             //Initializes Background music player
             BackgroundPlayer.URL = "Music.wav";
@@ -73,7 +74,7 @@ namespace Project_Pong
 
             public SolidBrush myBrush = new SolidBrush(Color.White);
 
-            public int p1Score;                          //Integer that will store player 1 score
+            public int p1Score = 10;                          //Integer that will store player 1 score
             public int p2Score;                          //Integer that will store player 2 score
 
             static int RandoMin = 1;                     //2 random integers used to randomize ball directions in the Randomize() method to avoid repetition of ball movement
@@ -326,11 +327,31 @@ namespace Project_Pong
             {
                 if (Ball.p1Score >= 11)
                 {
-                    MessageBox.Show("Congratulations, Player 1 Wins!");
+                    btnPause.PerformClick();
+                    MessageBox.Show("Congratulations! Player 1 Wins!");
+                    
+                    //Resets selected mode
+                    btnRainbow.Visible = true;
+                    btnOriginal.Visible = false;
+                    Ball.RainbowMode = false;
+
+                    //Resets game board
+                    Ball.Restart(2);
+                    pBGame.Invalidate();
                 }
                 else if (Ball.p2Score >= 11)
                 {
-                    MessageBox.Show("Congratulations, Player 2 Wins!");
+                    btnPause.PerformClick();
+                    MessageBox.Show("Congratulations! Player 2 Wins!");
+
+                    //Resets selected mode
+                    btnRainbow.Visible = true;
+                    btnOriginal.Visible = false;
+                    Ball.RainbowMode = false;
+
+                    //Resets game board
+                    Ball.Restart(2);
+                    pBGame.Invalidate();
                 }
             }
             else
@@ -403,6 +424,7 @@ namespace Project_Pong
             btnPause.Enabled = true;
             btnReset.Enabled = false;
             lblWelcome.Visible = false;
+            menuStrip1.Enabled = false;
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -416,6 +438,7 @@ namespace Project_Pong
             btnReset.Enabled = true;
             btnStart.Text = "Resume";
             btnStart.Enabled = true;
+            menuStrip1.Enabled = true;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -433,6 +456,7 @@ namespace Project_Pong
                 btnStart.Text = "Play";
                 btnStart.Enabled = true;
                 lblWelcome.Visible = true;
+                menuStrip1.Enabled = true;
 
                 //Resets selected mode
                 btnRainbow.Visible = true;
@@ -489,8 +513,8 @@ namespace Project_Pong
                         BinaryWriter binaryWriter = new BinaryWriter(fs);
 
                         //Writes all scores into the file
-                        binaryWriter.Write(Ball.p1Score.ToString());
-                        binaryWriter.Write(Ball.p2Score.ToString());
+                        binaryWriter.Write(Ball.p1Score);
+                        binaryWriter.Write(Ball.p2Score);
 
                         binaryWriter.Flush();
                         binaryWriter.Close();
@@ -534,6 +558,10 @@ namespace Project_Pong
                     }
 
                     binaryReader.Close();
+
+                    lblScore1.Text = Ball.p1Score.ToString();
+                    lblScore2.Text = Ball.p2Score.ToString();
+                    lblWelcome.Visible = false;
                     MessageBox.Show("Scoreboard Successfully Opened!");
 
                 }
