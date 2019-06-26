@@ -12,6 +12,18 @@ Pong is a two-dimensional sports game that simulates table tennis. The player co
 Players use the paddles to hit a ball back and forth. The goal is for each player to reach eleven points before the opponent; points are earned when one fails to return the ball to the other person and it hits their "goal".
 
 
+## Game Controls
+This is a 2 player game with "Player 1" controlling the paddle on the left and "Player 2" controlling the paddle on the right. 
+
+Player 1 Controls:
+        Key "W" = Moves Paddle UP
+        Key "S" = Moves Paddle DOWN
+        
+Player 2 Controls:
+        Key "P" = Moves Paddle UP
+        Key "L" = Moves Paddle DOWN
+
+
 ## Features
 An additional "Colour Mode" is available where the ball changes colours while moving and displays a rainbow pattern. Colours change quick and form a flashing effect. WARNING: This effect may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.
 
