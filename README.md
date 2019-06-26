@@ -1,15 +1,15 @@
 # Project_Pong
-Project_Pong is a simple re-creation of the classic Pong Arcade Game
+Project_Pong is a simple re-creation of the classic Pong Arcade Game.
 
 
 ## Game History
-Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics. The game was originally manufactured by Atari, which released it in 1972
+Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics. The game was originally manufactured by Atari, which released it in 1972.
 
 
 ## Instructions
 Pong is a two-dimensional sports game that simulates table tennis. The player controls an in-game paddle by moving it vertically across the left or right side of the screen. Players compete against others controlling a second paddle on the opposing side. 
 
-Players use the paddles to hit a ball back and forth. The goal is for each player to reach eleven points before the opponent; points are earned when one fails to return the ball to the other person and it hits their "goal".
+Players use the paddles to hit a ball back and forth. The goal is for each player to reach eleven points before the opponent; points are earned when one fails to return the ball to the other person and it hits their "goal."
 
 
 ## Game Controls
