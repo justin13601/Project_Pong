@@ -16,12 +16,12 @@ Players use the paddles to hit a ball back and forth. The goal is for each playe
 This is a 2 player game with "Player 1" controlling the paddle on the left and "Player 2" controlling the paddle on the right. 
 
 Player 1 Controls:
-        Key "W" = Moves Paddle UP
-        Key "S" = Moves Paddle DOWN
+        Key "W" = Moves Paddle UP;
+        Key "S" = Moves Paddle DOWN;
         
 Player 2 Controls:
-        Key "P" = Moves Paddle UP
-        Key "L" = Moves Paddle DOWN
+        Key "P" = Moves Paddle UP;
+        Key "L" = Moves Paddle DOWN;
 
 
 ## Features
