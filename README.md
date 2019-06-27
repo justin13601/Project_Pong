@@ -27,7 +27,10 @@ Player 2 Controls:
 
 
 ## Features
-An additional "Colour Mode" is available where the ball changes colours while moving and displays a rainbow pattern. Colours change quick and form a flashing effect. WARNING: This effect may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.
+An additional "Colour Mode" is available where the ball changes colours while moving and displays a rainbow pattern. Colours change quick and form a flashing effect. 
+
+WARNING: This effect may potentially trigger seizures for people with photosensitive epilepsy. Player discretion is advised.
+
 
 Pause and Resume buttons present to allow players to pause and resume their Pong session.
 
