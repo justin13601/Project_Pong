@@ -77,8 +77,8 @@ namespace Project_Pong
             public int p1Score;                          //Integer that will store player 1 score
             public int p2Score;                          //Integer that will store player 2 score
 
-            static int RandoMin = 1;                     //2 random integers used to randomize ball directions in the Randomize() method to avoid repetition of ball movement
-            static int RandoMax = 3;
+            int RandoMin = 1;                     //2 random integers used to randomize ball directions in the Randomize() method to avoid repetition of ball movement
+            int RandoMax = 3;
 
             public int Xspeed = -2;                      //Initial speeds
             public int Yspeed = 2;
@@ -86,6 +86,17 @@ namespace Project_Pong
             private readonly Random r = new Random();
 
             public bool RainbowMode = false;
+
+            public PongGame()
+            {
+                //No Parameter Constructor
+            }
+
+            public PongGame(Rectangle BallTest)
+            {
+                //Sets ball X position to the test X location
+                ball.X = BallTest.X;
+            }
 
             public void DrawGame(Graphics g)
             {
@@ -183,19 +194,25 @@ namespace Project_Pong
                 RandoMin = 1;
             }
 
-            public bool CheckScore()
+            public bool CheckScore(int Player1CurrentScore, int Player2CurrentScore)
             {
                 //Checks if player scored, and increases scores accordingly
                 if (ball.X < 1)
                 {
-                    p2Score += 1;
+                    if (Player1CurrentScore < 11 && Player2CurrentScore < 11)
+                    {
+                        p2Score += 1;
+                    }
                     Restart(2);
                     PlayScoreSound();
                     return true;
                 }
                 else if (ball.X > 777)
                 {
-                    p1Score += 1;
+                    if (Player1CurrentScore < 11 && Player2CurrentScore < 11)
+                    {
+                        p1Score += 1;
+                    }
                     Restart(1);
                     PlayScoreSound();
                     return true;
@@ -207,13 +224,13 @@ namespace Project_Pong
             }
 
             //Method that tests for win conditions (11 points to either player triggers win)
-            public bool CheckWin()
+            public bool CheckWin(int Player1Score, int Player2Score)
             {
-                if (p1Score >= 11)
+                if (Player1Score >= 11)
                 {
                     return true;
                 }
-                else if (p2Score >= 11)
+                else if (Player2Score >= 11)
                 {
                     return true;
                 }
@@ -312,7 +329,7 @@ namespace Project_Pong
             Ball.CheckIfMoving();                   //Checks if player is controlling the paddle
 
             //Checks if player scored
-            if (Ball.CheckScore() == true)
+            if (Ball.CheckScore(Ball.p1Score, Ball.p2Score) == true)
             {
                 lblScore1.Text = Ball.p1Score.ToString();
                 lblScore2.Text = Ball.p2Score.ToString();
@@ -323,7 +340,7 @@ namespace Project_Pong
             }
 
             //Checks if either player has won the game
-            if (Ball.CheckWin() == true)
+            if (Ball.CheckWin(Ball.p1Score, Ball.p2Score) == true)
             {
                 if (Ball.p1Score >= 11)
                 {
@@ -331,7 +348,7 @@ namespace Project_Pong
                     btnStart.Text = "Start";
                     btnStart.Enabled = false;
                     MessageBox.Show("Congratulations! Player 1 Wins!");
-                    
+
                     //Resets selected mode
                     btnRainbow.Visible = true;
                     btnOriginal.Visible = false;
@@ -569,7 +586,7 @@ namespace Project_Pong
                     MessageBox.Show("Scoreboard Successfully Opened!");
 
                     //Checks if either player already has won the game
-                    if (Ball.CheckWin() == true)
+                    if (Ball.CheckWin(Ball.p1Score, Ball.p2Score) == true)
                     {
                         if (Ball.p1Score >= 11)
                         {
