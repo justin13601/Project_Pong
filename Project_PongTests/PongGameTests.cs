@@ -98,5 +98,6 @@ namespace Project_PongTests
             //Assert
             Assert.AreEqual(XSpeed, -1);
         }
+
     }
 }
